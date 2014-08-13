@@ -1,17 +1,29 @@
-<div class="left-half">
-  <div class="text">
-    <h4>Code</h4>
-    <textarea class="field">
-      <%= @sound.code %>
-    </textarea>
-  </div>
-</div>
+<div class="container">
+  <div class="body">
+    <div class="left-half">
+      <div class="text">
+        <div class="top-row">
+          <h4>Code</h4>
+        </div>
+        <textarea class="field">
+          <%= @sound.code %>
+        </textarea>
+      </div>
+    </div>
 
-<div class="right-half">
-  <div class="text">
-    <h4>Description</h4>
-    <textarea class="field">
-      <%= @sound.description %>
-    </textarea>
+    <div class="right-half">
+      <div class="text">
+        <h4>Description</h4>
+        <textarea class="field">
+          <%= @sound.description %>
+        </textarea>
+      </div>
+    </div>
+    <div class="buttons">
+      <ul class="button-group [radius round]">
+        <li><a href="#" class="button tiny">Save</a></li>
+        <li><a href="#" class="button tiny">Play</a></li>
+      </ul>
+    </div>
   </div>
 </div>
