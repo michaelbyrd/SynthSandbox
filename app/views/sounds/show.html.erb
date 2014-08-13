@@ -20,9 +20,9 @@
       </div>
     </div>
     <div class="buttons">
-      <ul class="button-group [radius round]">
-        <li><a href="#" class="button tiny">Save</a></li>
-        <li><a href="#" class="button tiny">Play</a></li>
+      <ul class="button-group round">
+        <li class="button tiny save-button"><%=  link_to 'Save', @sound , method: :put, remote: :true %></li>
+        <li><a href="#" class="button tiny play-button">Play</a></li>
       </ul>
     </div>
   </div>
