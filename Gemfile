@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+gem 'foundation-rails'
 gem 'ruby-osc'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.4'
