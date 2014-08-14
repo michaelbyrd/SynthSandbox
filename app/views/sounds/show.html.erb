@@ -27,7 +27,16 @@
     </div>
   </div>
 </div>
-<script src="timbre.js"></script>
+
 <script>
-  T("sin", {freq:880, mul:0.5}).play();
+  function playSin(){
+    T("sin").play();
+  }
 </script>
+<script>
+  function stopSin(){
+    T.pause();
+  }
+</script>
+<button class="play-button" onclick="playSin()" >Play</button>
+<button class="stop-button" onclick="stopSin()" >Stop</button>
