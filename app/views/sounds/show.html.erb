@@ -21,7 +21,7 @@
     </div>
     <div class="buttons">
       <ul class="button-group round">
-        <li class="button tiny save-button"><%=  link_to 'Save', @sound , method: :put, remote: :true %></li>
+        <li class="button tiny save-button"><%=  link_to 'Save', sound_path, method: :patch, remote: :true %></li>
         <li class="button tiny play-button" onclick="playCode()">Play</button></li>
         <li class="button tiny stop-button" onclick="stopCode()">Stop</button></li>
       </ul>

@@ -9,6 +9,9 @@ class SoundsController < ApplicationController
     @sound = Sound.find(params[:id])
   end
 
+  def edit
+  end
+
   def new
     @sound = Sound.new
   end
@@ -29,9 +32,14 @@ class SoundsController < ApplicationController
   end
 
   def update
-    @sound.save
     respond_to do |format|
-      format.js
+      if @sound.update(sound_params)
+        format.html { redirect_to @sound }
+        format.json { render :show, status: :ok, location: @sound }
+      else
+        format.html { render :edit }
+        format.json { render json: @sound.errors, status: :unprocessable_entity }
+      end
     end
   end
 
@@ -42,7 +50,7 @@ class SoundsController < ApplicationController
   end
 
   def sound_params
-    params.require(:sound).permit(:code, :description)
+    params.require(:sound).permit(:title, :code, :description)
   end
 
 end
