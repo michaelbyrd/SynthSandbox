@@ -15,6 +15,17 @@ class SoundsController < ApplicationController
 
   def create
     @sound = Sound.new(sound_params)
+    respond_to do |format|
+      if @sound.save
+        format.html { redirect_to @sound, notice: 'Sound was successfully created.' }
+        format.js do
+          @sounds = Sound.all
+          redirect_to @sound
+        end
+      else
+        format.js { render :new }
+      end
+    end
   end
 
   def update
