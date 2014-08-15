@@ -1,31 +1,29 @@
 <div class="container">
   <div class="body">
-    <div class="left-half">
-      <div class="text">
-        <div class="top-row">
-          <h4>Code</h4>
+    <%= form_for @sound do |f| %>
+      <div class="left-half">
+        <div class="text">
+          <div class="top-row">
+            <h4>Code</h4>
+          </div>
+          <%= f.text_field :code %>
         </div>
-        <textarea class="field">
-          <%= @sound.code %>
-        </textarea>
       </div>
-    </div>
 
-    <div class="right-half">
-      <div class="text">
-        <h4>Description</h4>
-        <textarea class="field">
-          <%= @sound.description %>
-        </textarea>
+      <div class="right-half">
+        <div class="text">
+          <h4>Description</h4>
+          <%= f.text_field :description %>
+        </div>
       </div>
-    </div>
-    <div class="buttons">
-      <ul class="button-group round">
-        <li class="button tiny save-button"><%=  link_to 'Save', sound_path, method: :patch, remote: :true %></li>
-        <li class="button tiny play-button" onclick="playCode()">Play</button></li>
-        <li class="button tiny stop-button" onclick="stopCode()">Stop</button></li>
-      </ul>
-    </div>
+      <div class="buttons">
+        <ul class="button-group round">
+          <li class="button tiny save-button"><%= f.submit 'Save'%></li>
+          <li class="button tiny play-button" onclick="playCode()">Play</li>
+        <li class="button tiny stop-button" onclick="stopCode()">Stop</li>
+    </ul>
+  </div>
+<% end %>
   </div>
 </div>
 
