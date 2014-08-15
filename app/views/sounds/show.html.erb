@@ -18,7 +18,7 @@
       </div>
       <div class="buttons">
         <ul class="button-group round">
-          <li class="button tiny save-button"><%= f.submit 'Save'%></li>
+          <li><%= f.submit 'Save', class: 'button tiny save-button' %></li>
           <li class="button tiny play-button" onclick="playCode()">Play</li>
         <li class="button tiny stop-button" onclick="stopCode()">Stop</li>
     </ul>
@@ -29,7 +29,8 @@
 
 <script>
   function playCode(){
-    <%= @sound.code.html_safe %>
+    var code = $("#sound_code").val();
+    eval(code);
   }
 </script>
 <script>
