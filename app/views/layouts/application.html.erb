@@ -28,7 +28,12 @@
       <li class="has-dropdown">
       <a href="#">Account</a>
       <ul class="dropdown">
-        <li><a href="#">Sign Out</a></li>
+        <% if current_user %>
+          <li><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
+        <% else %>
+          <li><%= link_to "Sign up", new_user_registration_path %></li>
+          <li><%= link_to "Log In", new_user_session_path %></li>
+        <% end %>
         <li><a href="#">My Sounds</a></li>
       </ul>
       </li>
@@ -40,6 +45,22 @@
     </ul>
     </section>
     </nav>
+
+    <div class="large-6 columns large-centered">
+      <% if notice %>
+        <div data-alert class="alert-box info radius">
+          <%= notice %>
+          <a href="#" class="close">&times;</a>
+        </div>
+      <% end %>
+      <% if alert %>
+        <div data-alert class="alert-box alert radius">
+          <%= alert %>
+          <a href="#" class="close">&times;</a>
+        </div>
+      <% end %>
+    </div>
+
     <%= yield %>
     <%= javascript_include_tag "application" %>
   </body>
