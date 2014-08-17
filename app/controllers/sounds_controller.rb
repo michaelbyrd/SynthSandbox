@@ -1,5 +1,5 @@
 class SoundsController < ApplicationController
-  before_action :set_sound, except: [:create, :new]
+  before_action :set_sound, except: [:index, :create, :new]
 
   def index
     @sounds = Sound.all
