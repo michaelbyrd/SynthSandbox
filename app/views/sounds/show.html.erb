@@ -1,7 +1,7 @@
-<div class="container">
+<div class="container data-equalizer">
   <div class="body">
     <%= form_for @sound do |f| %>
-      <div class="left-half">
+      <div class="left-half data-equalizer-watch">
         <div class="text">
           <%= f.label :title %>
           <%= f.text_field :title %>
@@ -15,7 +15,7 @@
         </div>
       </div>
 
-      <div class="right-half">
+      <div class="right-half data-equalizer-watch">
         <div class="text">
           <h4>Description</h4>
           <%= f.text_area :description, size: '50x10' %>
