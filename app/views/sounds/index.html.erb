@@ -1,1 +1,5 @@
 <%= render partial: 'sound', collection: @sounds %>
+<% if current_user %>
+  <h3>My Sounds</h3>
+  <%= render partial: 'sound', collection: current_user.sounds %>
+<% end %>
