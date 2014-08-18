@@ -15,9 +15,6 @@ $black: #66757f;
   float:left;
   width:50%;
 }
-.container{
-  background-image: url('light_toast.png');
-}
 .buttons{
   margin:2.5%;
   float:right;
@@ -28,9 +25,13 @@ $black: #66757f;
   width:50%;
 }
 
-.play-button{
+.row.sound{
+  margin:15px;
+  border-style: solid;
+  border-width: 2px;
 }
-.save-button{
+.menu{
+  background-color: white;
 }
 .field{
   width: 100%;

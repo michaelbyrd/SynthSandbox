@@ -1,25 +1,27 @@
-<div class="menu">
-  <ul class="tabs vertical" data-tab>
-    <li class="tab-title active"><a href="#panel1a">My Sounds</a></li>
-    <li class="tab-title"><a href="#panel2a">All Sounds</a></li>
-    <li class="tab-title"><a href="#panel3a">Tab 3</a></li>
-    <li class="tab-title"><a href="#panel4a">Tab 4</a></li>
-  </ul>
-  <div class="tabs-content vertical">
-    <div class="content active" id="panel1a">
-      <% if current_user %>
-        <h3>My Sounds</h3>
-        <%= render partial: 'sound', collection: current_user.sounds %>
-      <% end %>
-    </div>
-    <div class="content" id="panel2a">
-      <%= render partial: 'sound', collection: @sounds %>
-    </div>
-    <div class="content" id="panel3a">
-      <p>Panel 3 content goes here.</p>
-    </div>
-    <div class="content" id="panel4a">
-      <p>Panel 4 content goes here.</p>
+<div class="container">
+  <div class="menu">
+    <ul class="tabs vertical" data-tab>
+      <li class="tab-title active"><a href="#panel1a">My Sounds</a></li>
+      <li class="tab-title"><a href="#panel2a">All Sounds</a></li>
+      <li class="tab-title"><a href="#panel3a">Tab 3</a></li>
+      <li class="tab-title"><a href="#panel4a">Tab 4</a></li>
+    </ul>
+    <div class="tabs-content vertical">
+      <div class="content active" id="panel1a">
+        <% if current_user %>
+          <h3>My Sounds</h3>
+          <%= render partial: 'sound', collection: current_user.sounds %>
+        <% end %>
+      </div>
+      <div class="content" id="panel2a">
+        <%= render partial: 'sound', collection: @sounds %>
+      </div>
+      <div class="content" id="panel3a">
+        <p>Panel 3 content goes here.</p>
+      </div>
+      <div class="content" id="panel4a">
+        <p>Panel 4 content goes here.</p>
+      </div>
     </div>
   </div>
 </div>
