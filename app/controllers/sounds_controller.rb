@@ -14,6 +14,8 @@ class SoundsController < ApplicationController
 
   def new
     @sound = Sound.new
+    @sound.save
+    redirect_to sound_path(@sound)
   end
 
   def create
@@ -50,7 +52,7 @@ class SoundsController < ApplicationController
   end
 
   def sound_params
-    params.require(:sound).permit(:title, :code, :description)
+    params.require(:sound).permit(:title, :code, :description, :user_id)
   end
 
 end
