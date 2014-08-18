@@ -17,11 +17,12 @@ ActiveRecord::Schema.define(version: 20140817222721) do
   enable_extension "plpgsql"
 
   create_table "sounds", force: true do |t|
+    t.string   "title"
     t.text     "code"
     t.text     "description"
+    t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "user_id"
   end
 
   create_table "users", force: true do |t|
