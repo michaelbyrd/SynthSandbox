@@ -16,14 +16,15 @@
           <%= f.text_area :description, size: '50x10' %>
         </div>
       </div>
+      <%= f.hidden_field :user_id, value: current_user.id %>
       <div class="buttons">
         <ul class="button-group round">
           <li><%= f.submit 'Save', class: 'button tiny save-button' %></li>
           <li class="button tiny play-button" onclick="playCode()">Play</li>
-        <li class="button tiny stop-button" onclick="stopCode()">Stop</li>
-    </ul>
-  </div>
-<% end %>
+          <li class="button tiny stop-button" onclick="stopCode()">Stop</li>
+        </ul>
+      </div>
+    <% end %>
   </div>
 </div>
 

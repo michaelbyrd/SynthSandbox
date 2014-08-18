@@ -5,6 +5,7 @@ class CreateSounds < ActiveRecord::Migration
       t.text :code
       t.text :description
       t.timestamps
+      t.references :user
     end
   end
 end
