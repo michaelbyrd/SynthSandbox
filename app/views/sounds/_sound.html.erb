@@ -1,5 +1,7 @@
 <div class="row sound">
-  <div class="large-6 columns">
-    <%= link_to "#{sound.title}", sound %>
-  </div>
+    <% if sound.title %>
+      <%= link_to "#{sound.title}", sound, :class => "button tiny" %>
+    <% else %>
+      <%= link_to "Sound #{sound.id}", sound, :class => "button tiny" %>
+    <% end %>
 </div>
