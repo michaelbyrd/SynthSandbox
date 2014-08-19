@@ -5,9 +5,15 @@ $light-gray: #e1e8ed;
 $dark-gray: #8899a6;
 $black: #66757f;
 
-.text{
-  width:95%;
-  margin:2.5%;
+.public{
+  background-color:blue;
+}
+.private{
+  background-color:red;
+}
+ .text{
+   width:95%;
+   margin:2.5%;
 }
 
 .left-half{
