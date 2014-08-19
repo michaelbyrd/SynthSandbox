@@ -3,6 +3,7 @@ class SoundsController < ApplicationController
 
   def index
     @sounds = Sound.all
+    @public_sounds = Sound.where(public: :true)
   end
 
   def show

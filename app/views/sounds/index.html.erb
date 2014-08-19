@@ -4,8 +4,9 @@
     <p>Synth Sandbox is a creative environment for experimenting with audio synthesis.  If you are a beginner, you should take a look at some of the examples below to get a hang of the language.</p>
   </div>
 </div>
-<%= render partial: 'sound', collection: @sounds %>
-
+<div class="sounds">
+  <%= render partial: 'sound', collection: @public_sounds %>
+</div>
 
 <div id="loginModal" class="reveal-modal" data-reveal>
   <%= render 'login' %>
