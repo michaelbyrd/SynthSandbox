@@ -1,6 +1,8 @@
 <%= form_for @sound do |f| %>
   <%= f.label :title %>
   <%= f.text_field :title %>
+  <%= f.label "Would you like other users to be able to see your code?" %>
+  <%= f.check_box :public %>
   <%= f.hidden_field :user_id, value: current_user.id %>
   <%= f.hidden_field :code %>
   <%= f.hidden_field :description %>
