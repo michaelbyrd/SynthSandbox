@@ -18,6 +18,7 @@ ActiveRecord::Schema.define(version: 20140817222721) do
 
   create_table "sounds", force: true do |t|
     t.string   "title"
+    t.boolean  "public"
     t.text     "code"
     t.text     "description"
     t.integer  "user_id"
