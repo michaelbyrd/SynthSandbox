@@ -14,8 +14,6 @@ class SoundsController < ApplicationController
 
   def new
     @sound = Sound.new
-    @sound.save
-    redirect_to sound_path(@sound)
   end
 
   def create

@@ -1,14 +1,10 @@
-<div class="container">
-  <div class="large-4 large-offset-1 columns">
-    <div class="panel">
-      <h4>Welcome</h4>
-      <p>Synth Sandbox is a creative environment for experimenting with audio synthesis.  If you are a beginner, you should take a look at some of the examples below to get a hang of the language.</p>
-    </div>
-  </div>
-  <div class="container">
-    <%= render partial: 'sound', collection: @sounds %>
+<div class="large-4 large-offset-1 columns">
+  <div class="panel">
+    <h4>Welcome</h4>
+    <p>Synth Sandbox is a creative environment for experimenting with audio synthesis.  If you are a beginner, you should take a look at some of the examples below to get a hang of the language.</p>
   </div>
 </div>
+<%= render partial: 'sound', collection: @sounds %>
 
 
 <div id="loginModal" class="reveal-modal" data-reveal>

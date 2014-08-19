@@ -1,0 +1,6 @@
+<%= form_for @sound do |f| %>
+  <%= f.label :title %>
+  <%= f.text_field :title %>
+  <%= f.hidden_field :user_id, value: current_user.id %>
+  <%= f.submit 'Save', class: 'button tiny save-button' %>
+<% end %>

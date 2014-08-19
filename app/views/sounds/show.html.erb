@@ -1,33 +1,19 @@
-<div class="container data-equalizer">
-  <div class="body">
-    <%= form_for @sound do |f| %>
-      <div class="left-half data-equalizer-watch">
-        <div class="text">
-          <%= f.label :title %>
-          <%= f.text_field :title %>
-          <div class="top-row">
-            <h4>Code</h4>
-          </div>
-          <%= f.text_area :code, size: '50x10'%>
-        </div>
-      </div>
+<div class="text">
+  <h4>Code</h4>
+  <%= text_area(:sound, :code, cols:20, rows: 20)%>
+</div>
 
-      <div class="right-half data-equalizer-watch">
-        <div class="text">
-          <h4>Description</h4>
-          <%= f.text_area :description, size: '50x10' %>
-        </div>
-      </div>
-      <%= f.hidden_field :user_id, value: current_user.id %>
-      <div class="buttons">
-        <ul class="button-group round">
-          <li><%= f.submit 'Save', class: 'button tiny save-button' %></li>
-          <li class="button tiny play-button" onclick="playCode()">Play</li>
-          <li class="button tiny stop-button" onclick="stopCode()">Stop</li>
-        </ul>
-      </div>
-    <% end %>
-  </div>
+<div class="text">
+  <h4>Description</h4>
+  <%= text_area(:sound, :description, cols:20, rows: 20)%>
+</div>
+
+<div class="buttons">
+  <%= render 'buttons' %>
+</div>
+
+<div id="saveModal" class="reveal-modal" data-reveal>
+  <%= render 'save' %>
 </div>
 
 <script>
@@ -41,3 +27,4 @@
     T.pause();
   }
 </script>
+
