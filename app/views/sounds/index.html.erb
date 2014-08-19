@@ -16,7 +16,8 @@
   <%= render 'signup' %>
 </div>
 
-
+<% if current_user %>
 <div id="mysoundsModal" class="reveal-modal" data-reveal>
   <%= render partial: 'sound', collection: current_user.sounds %>
 </div>
+<% end %>
