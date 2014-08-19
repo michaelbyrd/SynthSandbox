@@ -2,5 +2,14 @@
   <%= f.label :title %>
   <%= f.text_field :title %>
   <%= f.hidden_field :user_id, value: current_user.id %>
+  <%= f.hidden_field :code %>
+  <%= f.hidden_field :description %>
   <%= f.submit 'Save', class: 'button tiny save-button' %>
 <% end %>
+
+<script>
+  var c = $("#codeText").val();
+  $("#sound_code").val(c);
+  var d = $("#descriptionText").val();
+  $("#sound_description").val(c);
+</script>
