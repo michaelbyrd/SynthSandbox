@@ -9,9 +9,6 @@
             <h4>Code</h4>
           </div>
           <%= f.text_area :code, size: '50x10'%>
-          <% if @sound.code %>
-            <%= highlight_code(:js, @sound.code).html_safe %>
-          <% end %>
         </div>
       </div>
 

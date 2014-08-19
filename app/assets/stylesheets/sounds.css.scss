@@ -32,10 +32,15 @@ $black: #66757f;
 }
 .tabs{
   width:100%;
+  float:left;
+
 }
 .tabs-content{
   padding-top:10px;
   background-color:lightgrey;
+}
+.panel{
+  float:right;
 }
 .field{
   width: 100%;
@@ -43,7 +48,6 @@ $black: #66757f;
   min-height:200px;
 }
 .container{
-  background-image: url('dark_geometric.png');
   height:100%;
 }
 .button {
