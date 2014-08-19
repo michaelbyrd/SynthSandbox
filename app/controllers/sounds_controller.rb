@@ -35,9 +35,11 @@ class SoundsController < ApplicationController
   def update
     respond_to do |format|
       if @sound.update(sound_params)
+        format.js
         format.html { redirect_to @sound }
         format.json { render :show, status: :ok, location: @sound }
       else
+        format.js
         format.html { render :edit }
         format.json { render json: @sound.errors, status: :unprocessable_entity }
       end

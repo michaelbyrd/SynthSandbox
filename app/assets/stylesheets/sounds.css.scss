@@ -5,15 +5,19 @@ $light-gray: #e1e8ed;
 $dark-gray: #8899a6;
 $black: #66757f;
 
-.public{
-  background-color:blue;
+.sound{
+  float:left;
 }
 .private{
-  background-color:red;
+  .button{
+    border-style: solid;
+    border-width: 2px;
+    border-color: red;
 }
- .text{
-   width:95%;
-   margin:2.5%;
+}
+.text{
+  width:95%;
+  margin:2.5%;
 }
 
 .left-half{
