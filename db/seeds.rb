@@ -40,6 +40,40 @@ Sound.create(title: 'Use the mouse',
                      description: %{The position of the mouse effects the sound},
                      public: true
             )
+Sound.create(title: 'Smooth keyboard',
+             code: %{var glide = T("param", {value:880});
+             var VCO   = T("saw"  , {freq:glide, mul:0.2}).play();
+
+var keydict = T("ndict.key");
+var midicps = T("midicps");
+T("keyboard").on("keydown", function(e) {
+  var midi = keydict.at(e.keyCode);
+    if (midi) {
+      glide.linTo(midicps.at(midi), "100ms");
+    }
+  }).start();},
+  description: %{The sound will transition smoothly from note to note.},
+  public: true
+            )
+Sound.create(title: 'Envelope filtering',
+             code: %{var table = [200, [4800, 150], [2400, 500]];
+             var cutoff = T("env", {table:table}).bang();
+
+var VCO = T("saw", {mul:0.2});
+var VCF = T("lpf", {cutoff:cutoff, Q:10}, VCO).play();
+
+var keydict = T("ndict.key");
+var midicps = T("midicps");
+T("keyboard").on("keydown", function(e) {
+  var midi = keydict.at(e.keyCode);
+  if (midi) {
+      VCO.freq.value = midicps.at(midi);
+          cutoff.bang();
+            }
+            }).start();},
+            description: %{},
+            public: true
+            )
 
 Sound.create(title: 'Genopedie',
              code: %{var mml0, mml1;
@@ -84,4 +118,65 @@ Sound.create(title: 'Genopedie',
             }).set({buddies:master}).start();},
             description: %{Gemnopedie},
             public: true
+            )
+Sound.create(title: 'Wahwahwah',
+             code: %{var cutoff = T("sin", {freq:"400ms", mul:300, add:1760}).kr();
+
+             var VCO = T("saw", {mul:0.2});
+var VCF = T("lpf", {cutoff:cutoff, Q:20}, VCO).play();
+
+var keydict = T("ndict.key");
+var midicps = T("midicps");
+T("keyboard").on("keydown", function(e) {
+  var midi = keydict.at(e.keyCode);
+  if (midi) {
+      var freq = midicps.at(midi);
+      VCO.freq.value   = freq;
+      cutoff.add.value = freq * 2;
+      cutoff.bang();
+    }
+}).start();},
+description: %{},
+public: true
+            )
+Sound.create(title: 'Envelope keyboard',
+             code: %{var VCO = T("saw" , {mul:0.2});
+             var EG  = T("adsr", {a:100, d:1500, s:0.75, r:500}, VCO).play();
+             
+var keydict = T("ndict.key");
+var midicps = T("midicps");
+T("keyboard").on("keydown", function(e) {
+  var midi = keydict.at(e.keyCode);
+  if (midi) {
+      VCO.freq.value = midicps.at(midi);
+      EG.bang();
+    }
+}).on("keyup", function(e) {
+  var midi = keydict.at(e.keyCode);
+  if (midi) {
+      EG.release();
+    }
+}).start();},
+description: %{The sound will sustain until the key is depressed.},
+             public: true
+            )
+Sound.create(title: '',
+             code: %{},
+             description: %{},
+             public: true
+            )
+Sound.create(title: '',
+             code: %{},
+             description: %{},
+             public: true
+            )
+Sound.create(title: '',
+             code: %{},
+             description: %{},
+             public: true
+            )
+Sound.create(title: '',
+             code: %{},
+             description: %{},
+             public: true
             )
