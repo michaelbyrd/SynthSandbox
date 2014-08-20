@@ -13,8 +13,7 @@
 </div>
 
 <div id="saveModal" class="reveal-modal" data-reveal>
-  <% if current_user = @sound.user %>
-    <% @sound = Sound.new %>
+  <% if current_user == @sound.user %>
     <%= render 'save' %>
   <% else %>
     <% @sound = Sound.new %>
