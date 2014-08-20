@@ -13,12 +13,18 @@
 </div>
 
 <div id="saveModal" class="reveal-modal" data-reveal>
-  <%= render 'save' %>
+  <% if current_user = @sound.user %>
+    <% @sound = Sound.new %>
+    <%= render 'save' %>
+  <% else %>
+    <% @sound = Sound.new %>
+    <%= render 'save' %>
+  <% end %>
 </div>
 
 <script>
   function playCode(){
-    var code = $("#sound_code").val();
+    var code = $("#codeText").val();
     eval(code);
   }
 </script>
