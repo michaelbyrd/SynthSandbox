@@ -15,6 +15,7 @@ gem 'spring',        group: :development
 gem 'uglifier', '>= 1.3.0'
 gem 'devise'
 gem 'rails-assets-codemirror'
+gem 'rails_12factor', group: :production
 
 
 group :development, :test do
