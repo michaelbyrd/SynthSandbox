@@ -119,3 +119,64 @@ Sound.create(title: 'Genopedie',
             description: %{Gemnopedie},
             public: true
             )
+Sound.create(title: 'Wahwahwah',
+             code: %{var cutoff = T("sin", {freq:"400ms", mul:300, add:1760}).kr();
+
+             var VCO = T("saw", {mul:0.2});
+var VCF = T("lpf", {cutoff:cutoff, Q:20}, VCO).play();
+
+var keydict = T("ndict.key");
+var midicps = T("midicps");
+T("keyboard").on("keydown", function(e) {
+  var midi = keydict.at(e.keyCode);
+  if (midi) {
+      var freq = midicps.at(midi);
+      VCO.freq.value   = freq;
+      cutoff.add.value = freq * 2;
+      cutoff.bang();
+    }
+}).start();},
+description: %{},
+public: true
+            )
+Sound.create(title: 'Envelope keyboard',
+             code: %{var VCO = T("saw" , {mul:0.2});
+             var EG  = T("adsr", {a:100, d:1500, s:0.75, r:500}, VCO).play();
+             
+var keydict = T("ndict.key");
+var midicps = T("midicps");
+T("keyboard").on("keydown", function(e) {
+  var midi = keydict.at(e.keyCode);
+  if (midi) {
+      VCO.freq.value = midicps.at(midi);
+      EG.bang();
+    }
+}).on("keyup", function(e) {
+  var midi = keydict.at(e.keyCode);
+  if (midi) {
+      EG.release();
+    }
+}).start();},
+description: %{The sound will sustain until the key is depressed.},
+             public: true
+            )
+Sound.create(title: '',
+             code: %{},
+             description: %{},
+             public: true
+            )
+Sound.create(title: '',
+             code: %{},
+             description: %{},
+             public: true
+            )
+Sound.create(title: '',
+             code: %{},
+             description: %{},
+             public: true
+            )
+Sound.create(title: '',
+             code: %{},
+             description: %{},
+             public: true
+            )
