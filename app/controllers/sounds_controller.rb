@@ -15,6 +15,7 @@ class SoundsController < ApplicationController
 
   def new
     @sound = Sound.new
+    render 'show'
   end
 
   def create
