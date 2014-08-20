@@ -7,3 +7,18 @@
     <% end %>
   </div>
 </div>
+<div class="small-buttons">
+  <%= render 'buttons' %>
+</div>
+
+<script>
+  function playCode(){
+    <%= sound.code %>
+  }
+</script>
+<script>
+  function stopCode(){
+    T.pause();
+  }
+</script>
+
