@@ -63,6 +63,20 @@
     </div>
 
     <%= yield %>
+    <div class="sounds">
+      <%= render partial: 'sound', collection: @public_sounds %>
+    </div>
+
+    <div id="loginModal" class="reveal-modal" data-reveal>
+      <%= render 'login' %>
+    </div>
+
+    <% if current_user %>
+      <div id="mysoundsModal" class="reveal-modal" data-reveal>
+        <%= render partial: 'sound', collection: current_user.sounds %>
+      </div>
+    <% end %>
+
     <%= javascript_include_tag "application" %>
   </body>
 </html>
