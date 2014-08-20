@@ -14,5 +14,14 @@
 //= require jquery_ujs
 //= require foundation
 //= require timbre
+//= require codemirror/lib/codemirror
+//= require codemirror/mode/javascript/javascript
 //= require_tree .
-$(function(){ $(document).foundation(); });
+$(function(){ 
+  $(document).foundation(); 
+  var myCodeMirror = CodeMirror.fromTextArea(
+    document.getElementById("codeText"), { 
+      lineNumbers: true,
+      theme: "neo"
+    });
+});
