@@ -1,19 +1,9 @@
 <div class="row sound">
-  <% if sound.public %>
-    <div class="public sound">
-      <% if sound.title %>
-        <%= link_to "#{sound.title}", sound, :class => "button tiny" %>
-      <% else %>
-        <%= link_to "Sound #{sound.id}", sound, :class => "button tiny" %>
-      <% end %>
-    </div>
-  <% else %>
-    <div class="private sound">
-      <% if sound.title %>
-        <%= link_to "#{sound.title}", sound, :class => "button tiny" %>
-      <% else %>
-        <%= link_to "Sound #{sound.id}", sound, :class => "button tiny" %>
-      <% end %>
-    </div>
-  <% end %>
+  <div class="<%= sound.public ? 'public' : 'private' %> sound">
+    <% if sound.title %>
+      <%= link_to "#{sound.title}", sound, :class => "button tiny" %>
+    <% else %>
+      <%= link_to "Sound #{sound.id}", sound, :class => "button tiny" %>
+    <% end %>
+  </div>
 </div>
