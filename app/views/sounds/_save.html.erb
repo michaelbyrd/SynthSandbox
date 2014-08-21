@@ -13,6 +13,8 @@
 
 <script>
   function save(){
+    window.cmCode.save();
+    window.cmDesc.save();
     var c = $("#codeText").val();
     $("#sound_code").val(c);
     var d = $("#descriptionText").val();

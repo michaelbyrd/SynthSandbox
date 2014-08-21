@@ -19,12 +19,14 @@
 //= require_tree .
 $(function(){
   $(document).foundation();
-  var myCodeMirror = CodeMirror.fromTextArea(
+  window.cmCode = CodeMirror.fromTextArea(
     document.getElementById("codeText"), {
       lineNumbers: true,
       theme: "neo"
     });
-  var myCodeMirror = CodeMirror.fromTextArea(
+  window.cmDesc = CodeMirror.fromTextArea(
     document.getElementById("descriptionText"), {
+      lineWrapping: true
     });
 });
+
