@@ -5,6 +5,10 @@ $light-gray: #e1e8ed;
 $dark-gray: #8899a6;
 $black: #66757f;
 
+.container{
+  background-color:$black;
+  height:100%;
+}
 .buttons{
   margin:2.5%;
   float:right;

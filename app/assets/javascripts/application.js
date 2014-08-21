@@ -24,4 +24,7 @@ $(function(){
       lineNumbers: true,
       theme: "neo"
     });
+  var myCodeMirror = CodeMirror.fromTextArea(
+    document.getElementById("descriptionText"), {
+    });
 });
