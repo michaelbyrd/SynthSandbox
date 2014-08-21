@@ -1,3 +1,15 @@
+Sound.create(title: "The 'Hello World' of Audio Synthesis",
+             code: %{T("sin", {freq:440}).play();},
+             description: %{This code is the equivalent to a 'Hello World' application in any programming language.  It creates a sine wave generator with a specified frequency. Try changing 'sin' to 'saw' or changing the value of 'freq'.},
+             public: true
+            )
+Sound.create(title: 'Additive synthesis',
+             code: %{T("sin", {freq:220}).play();
+                T("sin", {freq:440}).play();
+                T("sin", {freq:880}).play();},
+             description: %{Additive synthesis combines oscillators to produce a more complex harmonic sound.},
+             public: true
+            )
 Sound.create(title: 'Simple sine wave',
              code: %{T("sin").play();},
              description: %{This code will generate a simple sine wave, a very basic example of sound synthesis},
@@ -8,17 +20,32 @@ Sound.create(title: 'Simple saw wave',
              description: %{This code will generate a simple saw wave.},
              public: true
             )
-Sound.create(title: 'Specify the frequency',
-             code: %{T("sin", {freq:880}).play();},
-             description: %{You can specify specific properties for any oscillator.},
-             public: true
-            )
 Sound.create(title: 'Specify the frequency later',
              code: %{var sin = T("sin").play();
 
              sin.set({freq:880});},
-             description: %{You can specify the frequency after creating the oscillator using the .set() method.},
+             description: %{You can specify or 'set' the frequency after creating the oscillator using the .set() method.},
              public: true
+            )
+Sound.create(title: 'Standard keyboard',
+             code: %{var synth = T("OscGen", {wave:"sin", mul:0.25}).play();
+
+var keydict = T("ndict.key");
+var midicps = T("midicps");
+T("keyboard").on("keydown", function(e) {
+  var midi = keydict.at(e.keyCode);
+  if (midi) {
+    var freq = midicps.at(midi);
+    synth.noteOnWithFreq(freq, 100);
+  }
+}).on("keyup", function(e) {
+  var midi = keydict.at(e.keyCode);
+  if (midi) {
+    synth.noteOff(midi, 100);
+  }
+}).start();},
+  description: %{You are able to play chords and combine sounds in this example.  Change the value of 'wave:' to 'saw' to get a sound similar to a harpsichord},
+  public: true
             )
 Sound.create(title: 'Envelopes',
              code: %{var sine1 = T("sin", {freq:440, mul:0.5});
@@ -37,7 +64,7 @@ Sound.create(title: 'Use the mouse',
                      T("saw", {freq:660}, mouse.Y).play();
 
                      mouse.start();},
-                     description: %{The position of the mouse effects the sound},
+                     description: %{The X and Y coordinates effect the volume of each sound.},
                      public: true
             )
 Sound.create(title: 'Smooth keyboard',
@@ -142,7 +169,7 @@ public: true
 Sound.create(title: 'Envelope keyboard',
              code: %{var VCO = T("saw" , {mul:0.2});
              var EG  = T("adsr", {a:100, d:1500, s:0.75, r:500}, VCO).play();
-             
+
 var keydict = T("ndict.key");
 var midicps = T("midicps");
 T("keyboard").on("keydown", function(e) {
@@ -158,25 +185,5 @@ T("keyboard").on("keydown", function(e) {
     }
 }).start();},
 description: %{The sound will sustain until the key is depressed.},
-             public: true
-            )
-Sound.create(title: '',
-             code: %{},
-             description: %{},
-             public: true
-            )
-Sound.create(title: '',
-             code: %{},
-             description: %{},
-             public: true
-            )
-Sound.create(title: '',
-             code: %{},
-             description: %{},
-             public: true
-            )
-Sound.create(title: '',
-             code: %{},
-             description: %{},
-             public: true
+public: true
             )
