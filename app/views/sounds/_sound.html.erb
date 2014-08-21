@@ -1,8 +1,10 @@
-<div class="large-8 large-offset-2 columns sounds">
-  <% if sound.title %>
-    <%= link_to "#{sound.title}", sound %>
-  <% else %>
-    <%= link_to "Sound #{sound.id}", sound %>
-  <% end %>
+<div class="row">
+  <div class="sounds">
+    <% if sound.title %>
+      <%= link_to "#{sound.title}", sound %>
+    <% else %>
+      <%= link_to "Sound #{sound.id}", sound %>
+    <% end %>
+    <hr>
+  </div>
 </div>
-
