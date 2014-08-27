@@ -1,28 +1,8 @@
-== README
+== SynthSandbox
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+SynthSandbox is a creative environment built on top of the javascript timbre.js
 
-Things you may want to cover:
+I was inspired by websites like CodePen.io and Codecademy to create a place for programmers to try out a language.  Audio synthesis programming languages aren't hugely popular so I wanted a place to get more people interested, whether they are musicians or programmers.
 
-* Ruby version
+It is deployed at http://synthsandbox.herokuapp.com/
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
